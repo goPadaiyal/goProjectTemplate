@@ -1,0 +1,4 @@
+.idea/
+*.wasm
+go.sum
+wasm_exec.js
