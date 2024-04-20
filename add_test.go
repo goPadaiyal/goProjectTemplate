@@ -1,4 +1,4 @@
-package gopopper
+package main
 
 import (
 	"fmt"
