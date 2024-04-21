@@ -25,22 +25,20 @@ jobs:
     - name: Set up Go
       uses: actions/setup-go@v4
       with:
-        go-version: '1.20'
+        go-version: '1.22.2'
 
     - name: Build WASM static pages
       run: |
          ./build_wasm
       shell: bash
 
-    - name: Commit and WASM static pages
+    - name: Commit and push WASM static pages
       env:
-        CI_COMMIT_MESSAGE: Organization report - $(date +'%Y-%m-%dT%H:%M:%S')
+        CI_COMMIT_MESSAGE: Add WASM static pages - $(date +'%Y-%m-%dT%H:%M:%S')
         CI_COMMIT_AUTHOR: padaiyal
       run: |
-        git add --force *.wasm *.html wasm_exec.js
         git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
         git config --global user.email "user@gpt.padaiyal.com"
-        git add .
+        git add --force *.wasm *.html wasm_exec.js
         git commit -a -m "${{ env.CI_COMMIT_MESSAGE }}"
         git push
-     
