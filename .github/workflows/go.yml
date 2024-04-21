@@ -32,10 +32,15 @@ jobs:
          ./build_wasm
       shell: bash
 
-    - name: Stage WASM static pages
+    - name: Commit and WASM static pages
+      env:
+        CI_COMMIT_MESSAGE: Organization report - $(date +'%Y-%m-%dT%H:%M:%S')
+        CI_COMMIT_AUTHOR: padaiyal
       run: |
-          git add --force *.wasm *.html wasm_exec.js
-
-    # Commit all changed files back to the repository
-    - uses: stefanzweifel/git-auto-commit-action@v5
+        git add --force *.wasm *.html wasm_exec.js
+        git config --global user.name "${{ env.CI_COMMIT_AUTHOR }}"
+        git config --global user.email "user@gpt.padaiyal.com"
+        git add .
+        git commit -a -m "${{ env.CI_COMMIT_MESSAGE }}"
+        git push
      
