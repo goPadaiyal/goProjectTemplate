@@ -6,8 +6,6 @@ name: Go - Deploy WASM static files
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
 jobs:
 
