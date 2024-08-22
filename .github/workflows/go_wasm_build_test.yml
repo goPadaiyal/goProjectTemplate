@@ -18,7 +18,10 @@ jobs:
         go-version: '1.22.5'
 
     - name: Build
-      run: ./build_wasm
+      run: |
+        ls -al ./
+        ls -al ../
+        ./build_wasm
 
     - name: Test
       run: ./run_tests
