@@ -1,10 +1,11 @@
-package main
+package math
 
 import (
 	"fmt"
-	"github.com/stretchr/testify/assert"
 	"os"
 	. "testing"
+
+	"github.com/stretchr/testify/assert"
 )
 
 func TestSum(t *T) {

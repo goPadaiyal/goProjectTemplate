@@ -2,14 +2,10 @@ package main
 
 import (
 	"fmt"
+	add "go_project_template/math"
 	"strconv"
 	"syscall/js"
 )
-
-// Add two numbers.
-func Add(a int, b int) int {
-	return a + b
-}
 
 // Gets a HTML element given an ID.
 func getElementById(id string) js.Value {
@@ -38,7 +34,7 @@ func addAndSetResult() {
 		fmt.Println(err)
 		return
 	}
-	sumNode.Set("innerHTML", Add(number1, number2))
+	sumNode.Set("innerHTML", add.Add(number1, number2))
 }
 
 // Start of execution.
