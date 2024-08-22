@@ -20,6 +20,7 @@ jobs:
     - name: Build
       run: |
         ls -al ./
+        pwd
         ls -al ../
         ./build_wasm
 
